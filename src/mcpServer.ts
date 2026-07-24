@@ -3,7 +3,7 @@ import { registerAllTools } from './tools/index.js';
 
 export function createMcpServer(): McpServer {
   const server = new McpServer({
-    name: 'outlook-calendar-mcp',
+    name: 'office365-personal-calendar-mcp',
     version: '0.1.0'
   });
   registerAllTools(server);

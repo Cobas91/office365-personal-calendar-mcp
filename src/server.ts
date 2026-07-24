@@ -119,7 +119,7 @@ app.get('/mcp', requireAuth, handleMcpSessionRequest);
 app.delete('/mcp', requireAuth, handleMcpSessionRequest);
 
 app.listen(config.PORT, () => {
-  console.log(`outlook-calendar-mcp listening on port ${config.PORT}`);
+  console.log(`office365-personal-calendar-mcp listening on port ${config.PORT}`);
   console.log(`MCP endpoint: ${mcpServerUrl.href}`);
 });
 

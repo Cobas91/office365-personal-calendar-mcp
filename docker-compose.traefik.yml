@@ -25,11 +25,11 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.docker.network=${TRAEFIK_NETWORK:-public_access}'
-      - 'traefik.http.routers.outlook-calendar-mcp.rule=Host(`${MCP_DOMAIN}`)'
-      - 'traefik.http.routers.outlook-calendar-mcp.entrypoints=websecure'
-      - 'traefik.http.routers.outlook-calendar-mcp.tls=true'
-      - 'traefik.http.routers.outlook-calendar-mcp.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}'
-      - 'traefik.http.services.outlook-calendar-mcp.loadbalancer.server.port=3000'
+      - 'traefik.http.routers.office365-personal-calendar-mcp.rule=Host(`${MCP_DOMAIN}`)'
+      - 'traefik.http.routers.office365-personal-calendar-mcp.entrypoints=websecure'
+      - 'traefik.http.routers.office365-personal-calendar-mcp.tls=true'
+      - 'traefik.http.routers.office365-personal-calendar-mcp.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}'
+      - 'traefik.http.services.office365-personal-calendar-mcp.loadbalancer.server.port=3000'
 
 networks:
   public_access:

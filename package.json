@@ -1,5 +1,5 @@
 {
-  "name": "outlook-calendar-mcp",
+  "name": "office365-personal-calendar-mcp",
   "version": "0.1.0",
   "description": "Remote MCP server that connects Claude (or any MCP client) to a Microsoft 365 / Outlook calendar via OAuth and the Microsoft Graph API.",
   "license": "MIT",

@@ -1,4 +1,4 @@
-# outlook-calendar-mcp
+# office365-personal-calendar-mcp
 
 A self-hostable, open-source **remote MCP server** that connects Claude (or any
 [MCP](https://modelcontextprotocol.io)-compatible client) to a **Microsoft 365 / Outlook
@@ -64,8 +64,8 @@ server, never a real Microsoft credential (see
 ## Running it
 
 ```bash
-git clone https://github.com/<your-account>/outlook-calendar-mcp.git
-cd outlook-calendar-mcp
+git clone https://github.com/<your-account>/office365-personal-calendar-mcp.git
+cd office365-personal-calendar-mcp
 cp .env.example .env
 ```
 
