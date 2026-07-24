@@ -1,0 +1,39 @@
+# Alternative to docker-compose.yml for hosts that already run Traefik as their reverse
+# proxy (see docs/adr/0005-traefik-integration-for-shared-vps.md). Skips the bundled Caddy
+# service entirely and instead joins Traefik's external network with router labels.
+#
+# Usage:
+#   docker compose -f docker-compose.traefik.yml --env-file .env.prod up -d --build
+#
+# Requires:
+#   - An external Docker network that Traefik is already watching (default assumed name
+#     below: public_access - adjust TRAEFIK_NETWORK in your env file if yours differs)
+#   - A Traefik certresolver already configured (default assumed name: letsencrypt)
+
+services:
+  mcp:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    environment:
+      - DB_PATH=/app/data/tokens.sqlite
+    volumes:
+      - mcp_data:/app/data
+    networks:
+      - public_access
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.docker.network=${TRAEFIK_NETWORK:-public_access}'
+      - 'traefik.http.routers.outlook-calendar-mcp.rule=Host(`${MCP_DOMAIN}`)'
+      - 'traefik.http.routers.outlook-calendar-mcp.entrypoints=websecure'
+      - 'traefik.http.routers.outlook-calendar-mcp.tls=true'
+      - 'traefik.http.routers.outlook-calendar-mcp.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}'
+      - 'traefik.http.services.outlook-calendar-mcp.loadbalancer.server.port=3000'
+
+networks:
+  public_access:
+    external: true
+
+volumes:
+  mcp_data:

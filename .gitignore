@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+*.log
+npm-debug.log*
+.env
+.env.local
+data/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+caddy_data/
+caddy_config/
+.DS_Store
+Thumbs.db
