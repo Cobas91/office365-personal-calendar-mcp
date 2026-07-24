@@ -1,0 +1,13 @@
+node_modules
+dist
+data
+coverage
+.env
+.env.local
+*.sqlite
+*.log
+.git
+.github
+docs
+test
+.vscode
